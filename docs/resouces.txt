@@ -1,0 +1,3 @@
+资料
+xmpp中文文档   http://wiki.jabbercn.org/XMPP%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BD%AF%E4%BB%B6
+opernfire官网  http://www.igniterealtime.org/
