@@ -3,12 +3,11 @@
 package com.codebricker.lbsshare.mod.main;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import android.app.Dialog;
 import android.app.TabActivity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
@@ -24,6 +23,7 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
+import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +37,7 @@ import com.codebricker.lbsshare.bak.client.group.IGroup;
 import com.codebricker.lbsshare.bak.client.group.IOperateGroup;
 import com.codebricker.lbsshare.bak.client.internal.IInternal;
 import com.codebricker.lbsshare.common.async.MainHandler;
+import com.codebricker.lbsshare.common.utils.AndroidUtil;
 import com.codebricker.lbsshare.dlgs.WaitDialog;
 import com.codebricker.lbsshare.mod.personal.map.ShowMapActivity;
 import com.codebricker.lbsshare.mod.setting.ShareLocationSettingActivity;
@@ -51,6 +52,8 @@ import com.codebricker.lbsshare.vos.Register;
 public class MainActivity extends TabActivity {
 
 	private static final String TAG = "LBSClientMainActivity";
+	private static final int TOP_PADDING_SELECTED = 4;
+	private static final int TOP_PADDING_NORMAL = 10;
 
 	public WaitDialog progressDialog;
 	public WaitDialog searchProgressDialog;
@@ -61,18 +64,18 @@ public class MainActivity extends TabActivity {
 	public boolean showMap = false;
 	public boolean groupShowMap = false;
 	public MainHandler mainHandler;
-    private int[] tabMenus = {R.menu.mainmenu, R.menu.groupmainmenu};
+	private int[] tabMenus = { R.menu.mainmenu, R.menu.groupmainmenu };
 
 	public Register register;
 	public Login login;
-	
+
 	public IGeneral iGeneral;
 	public IFriend iFriend;
 	public IOperateFriend iOperateFriend;
 	public IGroup iGroup;
 	public IOperateGroup iOperateGroup;
 	public IInternal internal;
-	
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -122,11 +125,9 @@ public class MainActivity extends TabActivity {
 				intent1.putExtra("account", "test");
 				intent1.putExtra("location", location);
 				try {
-					(this).startActivityForResult(intent1,
-							ConstantData.REQUEST_MAP_ACTIVITY);
+					(this).startActivityForResult(intent1, ConstantData.REQUEST_MAP_ACTIVITY);
 				} catch (Exception e) {
-					Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG)
-							.show();
+					Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
 				}
 			}
 			// in the friend tap, make sure who am i
@@ -145,8 +146,7 @@ public class MainActivity extends TabActivity {
 			// int the group tap, search a sharedgroup to join in
 			Intent intent1 = new Intent(this, MainActivity.class);
 			intent1.putExtra("LBSClientMainActivity", true);
-			this.startActivityForResult(intent1,
-					ConstantData.REQUEST_REGISTER_ACTIVITY);
+			this.startActivityForResult(intent1, ConstantData.REQUEST_REGISTER_ACTIVITY);
 			break;
 		default:
 			break;
@@ -167,15 +167,13 @@ public class MainActivity extends TabActivity {
 		case 0:
 			inflater.inflate(tabMenus[0], menu);
 
-			if ((register != null && register.getRegisterTimes() > 0)
-					|| login != null) {
+			if ((register != null && register.getRegisterTimes() > 0) || login != null) {
 				menu.findItem(R.id.register_menu).setVisible(false);
 			}
 			break;
 		case 1:
 			inflater.inflate(tabMenus[1], menu);
-			if ((register != null && register.getRegisterTimes() > 0)
-					|| login != null) {
+			if ((register != null && register.getRegisterTimes() > 0) || login != null) {
 				menu.findItem(R.id.group_register_menu).setVisible(false);
 			}
 			break;
@@ -245,8 +243,7 @@ public class MainActivity extends TabActivity {
 			}
 		});
 
-		view.findViewById(R.id.dialog_layout_two_button).setVisibility(
-				View.GONE);
+		view.findViewById(R.id.dialog_layout_two_button).setVisibility(View.GONE);
 
 		return dialog;
 	}
@@ -260,12 +257,10 @@ public class MainActivity extends TabActivity {
 
 			View addView = inflater.inflate(R.layout.add_friend, null);
 			addDialog.setContentView(addView);
-			final EditText input = (EditText) addView
-					.findViewById(R.id.add_friend_edit);
+			final EditText input = (EditText) addView.findViewById(R.id.add_friend_edit);
 
 			Button okBtn = (Button) addView.findViewById(R.id.add_friend_ok);
-			Button cacelBtn = (Button) addView
-					.findViewById(R.id.add_friend_cancel);
+			Button cacelBtn = (Button) addView.findViewById(R.id.add_friend_cancel);
 
 			okBtn.setOnClickListener(new OnClickListener() {
 				@Override
@@ -274,12 +269,10 @@ public class MainActivity extends TabActivity {
 					String email = "";
 					String name = input.getText().toString().trim();
 					if (name == null || "".equals(name.trim())) {
-						MainActivity.this.onCreateDialog(
-								ConstantData.DIALOG_FRIEND_INPUT_ILLEGAL, null);
+						MainActivity.this.onCreateDialog(ConstantData.DIALOG_FRIEND_INPUT_ILLEGAL, null);
 						return;
 					} else {
-						if (name.matches(ConstantData.Email_Regex)
-								|| name.matches(ConstantData.Phone_Regex)) {
+						if (name.matches(ConstantData.Email_Regex) || name.matches(ConstantData.Phone_Regex)) {
 							if (name.matches(ConstantData.Email_Regex)) {
 								email = name;
 							} else {
@@ -288,9 +281,7 @@ public class MainActivity extends TabActivity {
 
 							addDialog.dismiss();
 						} else {
-							MainActivity.this.onCreateDialog(
-									ConstantData.DIALOG_FRIEND_INPUT_ILLEGAL,
-									null);
+							MainActivity.this.onCreateDialog(ConstantData.DIALOG_FRIEND_INPUT_ILLEGAL, null);
 						}
 					}
 				}
@@ -309,115 +300,104 @@ public class MainActivity extends TabActivity {
 			break;
 
 		case ConstantData.DIALOG_FRIEND_INPUT_ILLEGAL:
-			popupSingleButtonDialog(getString(R.string.lab_add_friend),
-					getString(R.string.your_friend_name_is_illegal)).show();
+			popupSingleButtonDialog(getString(R.string.lab_add_friend), getString(R.string.your_friend_name_is_illegal))
+					.show();
 			break;
 
 		case ConstantData.DIALOG_GROUP_INPUT_ILLEGAL:
-			popupSingleButtonDialog(getString(R.string.lab_create_group),
-					getString(R.string.group_illegal)).show();
+			popupSingleButtonDialog(getString(R.string.lab_create_group), getString(R.string.group_illegal)).show();
 
 			break;
 
 		case ConstantData.DIALOG_ABOUT:
-//			MainApplication mainApplication = (MainApplication) this
-//					.getApplication();
-//			userInfo = mainApplication.userInfo;
-//
-//			if (("".equals(userInfo.getEmail()) && register != null && register
-//					.getRegisterTimes() > 0)) {
-//				try {
-//					userInfo = iGeneral.getUserInfo();
-//				} catch (RemoteException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//
-//			Log.d(TAG, "user=" + userInfo.getNick());
-//
-//			final Dialog aboutDialog = new Dialog(this,
-//					R.style.Dialog_Fullscreen);
-//
-//			View aboutView = inflater.inflate(R.layout.about, null);
-//			aboutDialog.setContentView(aboutView);
-//
-//			TextView userView = (TextView) aboutView
-//					.findViewById(R.id.about_user);
-//			if (register != null && register.getRegisterTimes() > 0) {
-//				userView.setText(getString(R.string.register_user_name) + " "
-//						+ register.getUserName());
-//			} else {
-//				userView.setText(getString(R.string.register_user_name) + " "
-//						+ userInfo.getNick());
-//			}
-//
-//			TextView phoneView = (TextView) aboutView
-//					.findViewById(R.id.about_phone);
-//			if (register != null && register.getRegisterTimes() > 0) {
-//				phoneView.setText(getString(R.string.register_mobile) + " "
-//						+ register.getPhone());
-//			} else {
-//				phoneView.setText(getString(R.string.register_mobile));
-//			}
-//
-//			TextView emailView = (TextView) aboutView
-//					.findViewById(R.id.about_email);
-//			if (register != null && register.getRegisterTimes() > 0) {
-//				emailView.setText(getString(R.string.register_email) + " "
-//						+ register.getEmail());
-//			} else {
-//				emailView.setText(getString(R.string.register_email));
-//			}
-//
-//			aboutDialog.show();
+			// MainApplication mainApplication = (MainApplication) this
+			// .getApplication();
+			// userInfo = mainApplication.userInfo;
+			//
+			// if (("".equals(userInfo.getEmail()) && register != null &&
+			// register
+			// .getRegisterTimes() > 0)) {
+			// try {
+			// userInfo = iGeneral.getUserInfo();
+			// } catch (RemoteException e) {
+			// e.printStackTrace();
+			// }
+			// }
+			//
+			// Log.d(TAG, "user=" + userInfo.getNick());
+			//
+			// final Dialog aboutDialog = new Dialog(this,
+			// R.style.Dialog_Fullscreen);
+			//
+			// View aboutView = inflater.inflate(R.layout.about, null);
+			// aboutDialog.setContentView(aboutView);
+			//
+			// TextView userView = (TextView) aboutView
+			// .findViewById(R.id.about_user);
+			// if (register != null && register.getRegisterTimes() > 0) {
+			// userView.setText(getString(R.string.register_user_name) + " "
+			// + register.getUserName());
+			// } else {
+			// userView.setText(getString(R.string.register_user_name) + " "
+			// + userInfo.getNick());
+			// }
+			//
+			// TextView phoneView = (TextView) aboutView
+			// .findViewById(R.id.about_phone);
+			// if (register != null && register.getRegisterTimes() > 0) {
+			// phoneView.setText(getString(R.string.register_mobile) + " "
+			// + register.getPhone());
+			// } else {
+			// phoneView.setText(getString(R.string.register_mobile));
+			// }
+			//
+			// TextView emailView = (TextView) aboutView
+			// .findViewById(R.id.about_email);
+			// if (register != null && register.getRegisterTimes() > 0) {
+			// emailView.setText(getString(R.string.register_email) + " "
+			// + register.getEmail());
+			// } else {
+			// emailView.setText(getString(R.string.register_email));
+			// }
+			//
+			// aboutDialog.show();
 
 			break;
 
 		case ConstantData.DIALOG_CREATE_GROUP:
-			final Dialog createDialog = new Dialog(this,
-					R.style.Dialog_Fullscreen);
+			final Dialog createDialog = new Dialog(this, R.style.Dialog_Fullscreen);
 
-			View createGroupView = inflater
-					.inflate(R.layout.create_group, null);
+			View createGroupView = inflater.inflate(R.layout.create_group, null);
 			createDialog.setContentView(createGroupView);
 			createDialog.setTitle(R.string.lab_create_group);
 
-			final EditText groupName = (EditText) createGroupView
-					.findViewById(R.id.create_group_name);
-			final EditText description = (EditText) createGroupView
-					.findViewById(R.id.create_group_description);
-			final Button createGroupBtn = (Button) createGroupView
-					.findViewById(R.id.create_group_create);
+			final EditText groupName = (EditText) createGroupView.findViewById(R.id.create_group_name);
+			final EditText description = (EditText) createGroupView.findViewById(R.id.create_group_description);
+			final Button createGroupBtn = (Button) createGroupView.findViewById(R.id.create_group_create);
 
 			final String rules = ConstantData.GroupName_Regex;
 			createGroupBtn.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					String shareGroupName = groupName.getText().toString()
-							.trim();
-					String shareDescription = description.getText().toString()
-							.trim();
-					if (shareGroupName != null
-							&& shareGroupName.matches(rules)
-							&& shareDescription
-									.matches(ConstantData.Description_Regex)) {
-//						try {
-//							this.iOperateGroup.createGroup(shareGroupName,
-//									shareDescription);
-//						} catch (RemoteException e) {
-//							e.printStackTrace();
-//						}
+					String shareGroupName = groupName.getText().toString().trim();
+					String shareDescription = description.getText().toString().trim();
+					if (shareGroupName != null && shareGroupName.matches(rules)
+							&& shareDescription.matches(ConstantData.Description_Regex)) {
+						// try {
+						// this.iOperateGroup.createGroup(shareGroupName,
+						// shareDescription);
+						// } catch (RemoteException e) {
+						// e.printStackTrace();
+						// }
 
 						createDialog.dismiss();
 					} else {
-						MainActivity.this.onCreateDialog(
-								ConstantData.DIALOG_GROUP_INPUT_ILLEGAL, null);
+						MainActivity.this.onCreateDialog(ConstantData.DIALOG_GROUP_INPUT_ILLEGAL, null);
 					}
 				}
 			});
 
-			final Button cancelBtn = (Button) createGroupView
-					.findViewById(R.id.create_group_cancel);
+			final Button cancelBtn = (Button) createGroupView.findViewById(R.id.create_group_cancel);
 			cancelBtn.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -429,22 +409,18 @@ public class MainActivity extends TabActivity {
 			break;
 
 		case ConstantData.DIALOG_SEARCH_GROUP:
-			View searchGroupView = inflater
-					.inflate(R.layout.search_group, null);
+			View searchGroupView = inflater.inflate(R.layout.search_group, null);
 			final Dialog dialog = new Dialog(this, R.style.Dialog_Fullscreen);
 			dialog.setContentView(searchGroupView);
 			dialog.show();
 
-			final EditText searchGroupName = (EditText) searchGroupView
-					.findViewById(R.id.search_group_name);
-			Button searchGroupBtn = (Button) searchGroupView
-					.findViewById(R.id.search_group_search);
+			final EditText searchGroupName = (EditText) searchGroupView.findViewById(R.id.search_group_name);
+			Button searchGroupBtn = (Button) searchGroupView.findViewById(R.id.search_group_search);
 
 			searchGroupBtn.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					String shareGroupName = searchGroupName.getText()
-							.toString().trim();
+					String shareGroupName = searchGroupName.getText().toString().trim();
 					if (shareGroupName != null && !"".equals(searchGroupName)) {
 						try {
 							iGroup.searchGroups(shareGroupName, 30);
@@ -456,8 +432,7 @@ public class MainActivity extends TabActivity {
 						dialog.dismiss();
 						searchProgressDialog = new WaitDialog(MainActivity.this);
 
-						searchProgressDialog
-								.setMessage(getString(R.string.searching));
+						searchProgressDialog.setMessage(getString(R.string.searching));
 						searchProgressDialog.show();
 					}
 
@@ -466,24 +441,20 @@ public class MainActivity extends TabActivity {
 			break;
 
 		case ConstantData.DIALOG_SEARCH_RESULT_GROUP:
-			ArrayList<GroupInfo> groups = bl
-					.getParcelableArrayList("searchGroups");
+			ArrayList<GroupInfo> groups = bl.getParcelableArrayList("searchGroups");
 
 			if (groups == null || groups.size() == 0) {
-				popupSingleButtonDialog(
-						getString(R.string.search_group_search),
+				popupSingleButtonDialog(getString(R.string.search_group_search),
 						getString(R.string.search_group_no_result)).show();
 			} else {
 				searchResultDialog = new Dialog(this, R.style.Dialog_Fullscreen);
-				View groupResultView = inflater.inflate(
-						R.layout.search_group_adapter, null);
+				View groupResultView = inflater.inflate(R.layout.search_group_adapter, null);
 				searchResultDialog.setContentView(groupResultView);
 				searchResultDialog.show();
 
 				ExpandableListView listView = (ExpandableListView) searchResultDialog
 						.findViewById(R.id.searchgroupexpandablelistView);
-				SearchGroupAdapter searchGroupAdapter = new SearchGroupAdapter(
-						this, groups);
+				SearchGroupAdapter searchGroupAdapter = new SearchGroupAdapter(this, groups);
 				listView.setAdapter(searchGroupAdapter);
 			}
 
@@ -531,8 +502,7 @@ public class MainActivity extends TabActivity {
 				// register
 				if (register != null && register.getRegisterTimes() < 1) {
 					try {
-						internal.setUserMap(register.getUserName(),
-								register.getPassWord(), register.getEmail(),
+						internal.setUserMap(register.getUserName(), register.getPassWord(), register.getEmail(),
 								register.getPhone());
 					} catch (RemoteException e) {
 						e.printStackTrace();
@@ -558,135 +528,95 @@ public class MainActivity extends TabActivity {
 	 * init the main window and get the component in UI.
 	 */
 	private void initWindow() {
-		// progress dialog
-		// progressDialog = ProgressDialog.show(this,
-		// this.getString(R.string.wait),
-		// this.getString(R.string.connecting), true);
-
-		LayoutInflater inflater = this.getLayoutInflater();
 		progressDialog = new WaitDialog(this);
-		progressDialog.show();
-
-		final Timer timer = new Timer();
-		timer.schedule(new TimerTask() {
-			@Override
-			public void run() {
-				if (progressDialog.isShowing()) {
-					progressDialog.dismiss();
-
-					// mainHandler.sendEmptyMessage(CommandEngine.APPLICATION_EXIT);
-				}
-
-				timer.cancel();
-			}
-
-		}, 1 * 1000, 120 * 1000);
 
 		tabHost = getTabHost();
 
-		final View friendView = inflater.inflate(R.layout.tab_head, null);
+		final View friendView = AndroidUtil.inflate(R.layout.tab_head);
+
 		final View friendHeadView = friendView.findViewById(R.id.tab_head);
-		((ImageView) friendView.findViewById(R.id.tab_image))
-				.setBackgroundDrawable(getResources().getDrawable(
-						R.drawable.tab_friends_selector));
-		final TextView friendTextView = ((TextView) friendView
-				.findViewById(R.id.tab_text));
-		friendTextView.setText(getString(R.string.tab_friends));
+		ImageView tabImg = (ImageView) friendView.findViewById(R.id.tab_image);
+		Drawable bgFrd = AndroidUtil.getDrawable(R.drawable.tab_friends_selector);
+		tabImg.setBackgroundDrawable(bgFrd);
+		final TextView friendTextView = ((TextView) friendView.findViewById(R.id.tab_text));
+		friendTextView.setText(AndroidUtil.getString(R.string.tab_friends));
 
-		tabHost.addTab(tabHost.newTabSpec(this.getString(R.string.tab_friends))
-				.setIndicator(friendView).setContent(R.id.Friends));
+		String tabFrdTxt = AndroidUtil.getString(R.string.tab_friends);
+		TabSpec tabFrd = tabHost.newTabSpec(tabFrdTxt).setIndicator(friendView).setContent(R.id.Friends);
+		tabHost.addTab(tabFrd);
 
-		final View groupView = inflater.inflate(R.layout.tab_head, null);
+		final View groupView = AndroidUtil.inflate(R.layout.tab_head);
 		final View groupHeadView = groupView.findViewById(R.id.tab_head);
-		((ImageView) groupView.findViewById(R.id.tab_image))
-				.setBackgroundDrawable(getResources().getDrawable(
-						R.drawable.tab_group_selector));
-		final TextView groupTextView = ((TextView) groupView
-				.findViewById(R.id.tab_text));
+		String tabGrpTxt = AndroidUtil.getString(R.string.tab_groups);
+		TabSpec tabGrp = tabHost.newTabSpec(tabGrpTxt).setIndicator(groupView).setContent(R.id.Groups);
+		((ImageView) groupView.findViewById(R.id.tab_image)).setBackgroundDrawable(AndroidUtil
+				.getDrawable(R.drawable.tab_group_selector));
+		final TextView groupTextView = ((TextView) groupView.findViewById(R.id.tab_text));
 		groupTextView.setText(getString(R.string.tab_groups));
-		tabHost.addTab(tabHost.newTabSpec(this.getString(R.string.tab_groups))
-				.setIndicator(groupView).setContent(R.id.Groups));
+		tabHost.addTab(tabGrp);
 
-		final View appView = inflater.inflate(R.layout.tab_head, null);
+		final View appView = AndroidUtil.inflate(R.layout.tab_head);
 		final View appHeadView = appView.findViewById(R.id.tab_head);
-		((ImageView) appView.findViewById(R.id.tab_image))
-				.setBackgroundDrawable(getResources().getDrawable(
-						R.drawable.tab_application_selector));
-		final TextView appTextView = ((TextView) appView
-				.findViewById(R.id.tab_text));
+		((ImageView) appView.findViewById(R.id.tab_image)).setBackgroundDrawable(AndroidUtil
+				.getDrawable(R.drawable.tab_application_selector));
+		final TextView appTextView = ((TextView) appView.findViewById(R.id.tab_text));
 		appTextView.setText(getString(R.string.tab_apps));
-		tabHost.addTab(tabHost.newTabSpec(this.getString(R.string.tab_apps))
-				.setIndicator(appView).setContent(R.id.Apps));
+		tabHost.addTab(tabHost.newTabSpec(this.getString(R.string.tab_apps)).setIndicator(appView)
+				.setContent(R.id.Apps));
 
-		final int selectedColor = getResources().getColor(
-				R.color.text_default_color);
-		final int normalColor = getResources().getColor(
-				R.color.menu_default_color);
-		final int selectedTopPadding = 4;
-		final int normalTopPadding = 10;
+		final int selectedColor = AndroidUtil.getColor(R.color.text_default_color);
+		final int normalColor = AndroidUtil.getColor(R.color.menu_default_color);
 
 		// setting the current tab to display
 		tabHost.setCurrentTab(0);
-		friendView.setPadding(0, selectedTopPadding, 0, 0);
-		groupView.setPadding(0, normalTopPadding, 0, 0);
-		appView.setPadding(0, normalTopPadding, 0, 0);
+		friendView.setPadding(0, TOP_PADDING_SELECTED, 0, 0);
+		groupView.setPadding(0, TOP_PADDING_NORMAL, 0, 0);
+		appView.setPadding(0, TOP_PADDING_NORMAL, 0, 0);
 		friendTextView.setTextColor(selectedColor);
-		friendHeadView.setBackgroundDrawable(getResources().getDrawable(
-				R.drawable.tab_head_press));
-		groupHeadView.setBackgroundDrawable(getResources().getDrawable(
-				R.drawable.tab_head_bg));
-		appHeadView.setBackgroundDrawable(getResources().getDrawable(
-				R.drawable.tab_head_bg));
+		friendHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_press));
+		groupHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_bg));
+		appHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_bg));
 
 		tabHost.setOnTabChangedListener(new OnTabChangeListener() {
 			@Override
 			public void onTabChanged(String tabId) {
 
 				if (tabId.equals(getString(R.string.tab_friends))) {
-					friendView.setPadding(0, selectedTopPadding, 0, 0);
-					groupView.setPadding(0, normalTopPadding, 0, 0);
-					appView.setPadding(0, normalTopPadding, 0, 0);
+					friendView.setPadding(0, TOP_PADDING_SELECTED, 0, 0);
+					groupView.setPadding(0, TOP_PADDING_NORMAL, 0, 0);
+					appView.setPadding(0, TOP_PADDING_NORMAL, 0, 0);
 
 					friendTextView.setTextColor(selectedColor);
 					groupTextView.setTextColor(normalColor);
 					appTextView.setTextColor(normalColor);
 
-					friendHeadView.setBackgroundDrawable(getResources()
-							.getDrawable(R.drawable.tab_head_press));
-					groupHeadView.setBackgroundDrawable(getResources()
-							.getDrawable(R.drawable.tab_head_bg));
-					appHeadView.setBackgroundDrawable(getResources()
-							.getDrawable(R.drawable.tab_head_bg));
+					friendHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_press));
+					groupHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_bg));
+					appHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_bg));
 				} else if (tabId.equals(getString(R.string.tab_groups))) {
-					groupView.setPadding(0, selectedTopPadding, 0, 0);
-					friendView.setPadding(0, normalTopPadding, 0, 0);
-					appView.setPadding(0, normalTopPadding, 0, 0);
+					groupView.setPadding(0, TOP_PADDING_SELECTED, 0, 0);
+					friendView.setPadding(0, TOP_PADDING_NORMAL, 0, 0);
+					appView.setPadding(0, TOP_PADDING_NORMAL, 0, 0);
 
 					groupTextView.setTextColor(selectedColor);
 					friendTextView.setTextColor(normalColor);
 					appTextView.setTextColor(normalColor);
 
-					groupHeadView.setBackgroundDrawable(getResources()
-							.getDrawable(R.drawable.tab_head_press));
-					friendHeadView.setBackgroundDrawable(getResources()
-							.getDrawable(R.drawable.tab_head_bg));
-					appHeadView.setBackgroundDrawable(getResources()
-							.getDrawable(R.drawable.tab_head_bg));
+					groupHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_press));
+					friendHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_bg));
+					appHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_bg));
 				} else if (tabId.equals(getString(R.string.tab_apps))) {
-					appView.setPadding(0, selectedTopPadding, 0, 0);
-					friendView.setPadding(0, normalTopPadding, 0, 0);
-					groupView.setPadding(0, normalTopPadding, 0, 0);
+					appView.setPadding(0, TOP_PADDING_SELECTED, 0, 0);
+					friendView.setPadding(0, TOP_PADDING_NORMAL, 0, 0);
+					groupView.setPadding(0, TOP_PADDING_NORMAL, 0, 0);
 
 					appTextView.setTextColor(selectedColor);
 					friendTextView.setTextColor(normalColor);
 					groupTextView.setTextColor(normalColor);
 
-					appHeadView.setBackgroundDrawable(getResources()
-							.getDrawable(R.drawable.tab_head_press));
-					groupHeadView.setBackgroundDrawable(getResources()
-							.getDrawable(R.drawable.tab_head_bg));
-					friendHeadView.setBackgroundDrawable(getResources()
-							.getDrawable(R.drawable.tab_head_bg));
+					appHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_press));
+					groupHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_bg));
+					friendHeadView.setBackgroundDrawable(AndroidUtil.getDrawable(R.drawable.tab_head_bg));
 				}
 
 			}

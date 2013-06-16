@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_height="wrap_content"
-	android:layout_width="match_parent"
-	>
-	
-	<LinearLayout android:layout_height="wrap_content" 
-		android:layout_width="match_parent"
-		android:orientation="horizontal"  
-		android:id="@+id/tab_head" 
-	>
-	
-		<ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" 
-			android:layout_gravity="center_vertical"
-			android:id="@+id/tab_image" android:layout_marginLeft="2dp" />
-		<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" 
-			android:paddingTop="4dp"
-			android:id="@+id/tab_text" android:layout_marginLeft="3dp"
-			android:gravity="center_vertical"
-			android:textSize="11sp"
-			android:textColor="#ff545353"/>
-	</LinearLayout>
-			
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/tab_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/tab_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2dp" />
+
+        <TextView
+            android:id="@+id/tab_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:gravity="center_vertical"
+            android:paddingTop="4dp"
+            android:textColor="#ff545353"
+            android:textSize="11sp" />
+    </LinearLayout>
+
 </LinearLayout>
