@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" android:layout_height="wrap_content"
+	android:layout_width="match_parent" 
+	android:paddingLeft="20dp"
+	android:paddingRight="20dp"
+	android:background="@drawable/friend_list_selector"
+	>
+
+	<TextView android:id="@+id/group_list_adapter_textview"
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent"
+		android:textColor="@color/friend_nick_name_selector" 
+		android:textSize="20dp"
+		android:layout_centerVertical="true"
+		/>
+	<ImageView android:id="@+id/group_list_adapter_sharestate"
+		android:layout_width="wrap_content" android:layout_height="match_parent"
+		android:layout_alignParentRight="true" android:background="@drawable/friend_location_come_selector"
+		android:layout_centerVertical="true" android:layout_marginRight="5dp"
+		android:visibility="gone" />
+
+</RelativeLayout>

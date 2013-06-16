@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Used in contact edit menus -->
+	<string-array name="menu_task_operation">
+		<item>Share location</item>
+		<item>Request location</item>
+		<item>Follow</item>
+		<item>Share continuously</item>
+		<item>Remove friend</item>
+	</string-array>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/Groups" android:orientation="vertical"
+	android:layout_width="match_parent" android:layout_height="match_parent"
+	android:background="@drawable/search_group_sub_bg">
+	<ExpandableListView android:id="@+id/searchgroupexpandablelistView"
+		android:layout_width="match_parent" android:layout_height="match_parent"
+		android:scrollbars="none|vertical" 
+		android:groupIndicator="@null"/>
+</LinearLayout>

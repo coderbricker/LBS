@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent" android:layout_width="match_parent"
+	android:orientation="vertical" android:id="@+id/detail_dialog"
+	android:background="@drawable/search_group_sub_bg">
+
+	<TextView android:layout_width="match_parent"
+		android:layout_weight="4"
+		android:layout_height="match_parent" android:textSize="20sp"
+		android:textColor="@color/menu_default_color" android:background="@drawable/dialog_title"
+		android:text="@string/add_user_in_this_group" android:gravity="center" />
+
+	<ListView android:layout_height="match_parent" 
+		android:layout_weight="1"
+		android:layout_width="match_parent" android:id="@+id/group_add_user_list"
+		android:divider="@drawable/friend_detail_list_divider"
+		android:dividerHeight="0dp" android:layout_marginTop="5dp" 
+		android:cacheColorHint="#00000000"/>
+
+	<LinearLayout
+		android:layout_weight="4"
+		android:layout_height="match_parent" android:layout_width="match_parent"
+		android:orientation="horizontal" android:paddingTop="10dp"
+		android:paddingLeft="10dp" android:paddingRight="10dp"
+		android:paddingBottom="5dp">
+		<Button android:layout_height="wrap_content"
+			android:layout_width="100dp" android:id="@+id/group_add_user_add"
+			android:text="@string/lab_add" android:textColor="@color/text_default_color"
+			android:background="@drawable/button" android:paddingLeft="20dp"
+			android:paddingRight="20dp" android:layout_weight="1" />
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:textSize="20sp"
+			android:textColor="@color/menu_default_color" android:layout_weight="1"
+			android:paddingLeft="20dp" android:paddingRight="20dp" />
+		<Button android:layout_height="wrap_content"
+			android:layout_width="100dp" android:id="@+id/group_add_user_cancel"
+			android:text="@string/lab_cancle" android:textColor="@color/text_default_color"
+			android:background="@drawable/button" android:paddingLeft="20dp"
+			android:paddingRight="20dp" android:layout_weight="1" />
+
+	</LinearLayout>
+</LinearLayout>

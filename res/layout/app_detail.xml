@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent" android:layout_width="match_parent"
+	android:orientation="vertical" 
+	android:background="@drawable/app_detail_bg" 
+	android:gravity="left"
+	>
+	
+	<RelativeLayout android:layout_height="wrap_content" android:layout_width="match_parent" 
+		android:layout_marginTop="20dp"
+	>
+		<ImageView android:layout_width="70dp"
+			android:layout_height="70dp"
+			android:id="@+id/detail_app_icon"
+			android:layout_alignParentLeft="true"
+			android:src="@drawable/icon"
+			android:padding="1dp"
+		/>
+		<LinearLayout android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/detail_app_layout" 
+			android:orientation="vertical"
+			android:gravity="left"
+			android:layout_toRightOf="@+id/detail_app_icon"
+			android:paddingLeft="10dip"
+			android:paddingBottom="3dp"
+			android:paddingTop="3dp">
+
+			<TextView android:id="@+id/detail_app_install_tip" android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="@color/friend_nick_name_selector"
+				android:text="@string/tab_apps"
+			/>
+	
+			<TextView android:id="@+id/detail_app_name" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:gravity="center_vertical"
+				android:textColor="@android:color/black"
+				android:textSize="20sp"
+			/>
+			
+			<TextView android:id="@+id/detail_app_author" android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textColor="@color/friend_nick_name_selector"
+			/>
+	
+			<ImageView android:id="@+id/detail_app_star"
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content"
+				android:src="@drawable/app_star"
+			/>
+		</LinearLayout>
+		
+		<Button android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/detail_app_new"
+			android:text="@string/app_new"
+			android:background="@drawable/button"
+			android:layout_alignRight="@+id/detail_app_layout"
+			android:layout_alignBottom="@+id/detail_app_layout"
+			android:visibility="gone"/>
+	</RelativeLayout>
+
+	<TextView android:layout_width="wrap_content"
+			  android:layout_height="wrap_content"
+			  android:id="@+id/detail_app_description"
+			  android:layout_margin="10dp"/>
+			  
+	<LinearLayout android:layout_width="match_parent"
+		android:layout_height="wrap_content" 
+		android:id="@+id/detail_double_buuton_layout"
+		android:orientation="vertical"
+		android:gravity="center_vertical"
+		android:background="@drawable/add_fried_input_bg"
+		android:padding="10dp">
+		
+		<Button android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/detail_update"
+				android:text="@string/update" 
+				android:background="@drawable/button"
+				android:layout_marginTop="10dp"/>
+		
+		<Button android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/detail_remove"
+				android:text="@string/remove"
+				android:background="@drawable/button"
+				android:layout_marginTop="10dp" />	
+				-->	
+	</LinearLayout>
+
+	<LinearLayout android:layout_width="match_parent"
+		android:layout_height="wrap_content" 
+		android:id="@+id/detail_single_buuton_layout"
+		android:orientation="vertical"
+		android:padding="10dp"
+		android:gravity="center_vertical"
+		android:visibility="gone"
+		android:background="@drawable/add_fried_input_bg">
+		<Button android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/detail_install"
+				android:text="@string/install" 
+				android:background="@drawable/button"/>
+	</LinearLayout>
+	
+	
+	<LinearLayout android:layout_width="match_parent"
+		android:layout_height="wrap_content" 
+		android:id="@+id/detail_authenticate_layout"
+		android:orientation="horizontal"
+		android:visibility="gone"
+		android:layout_margin="10dp">
+		
+		<ImageView android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:src="@drawable/authenticate_tip"
+				  android:layout_marginRight="10dp"/>
+		
+		<TextView android:layout_width="wrap_content"
+				  android:layout_height="wrap_content"
+				  android:id="@+id/detail_authenticate_status"
+				  android:text="@string/authenticate_failed"/>
+	</LinearLayout>
+</LinearLayout>

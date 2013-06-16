@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="red">#FF0000</color>
+	<color name="friend_online">#FFe79c01</color>
+	<color name="text_default_color">#FFFDFAFA</color>
+	<color name="text_position_color">#FFE79C01</color>
+	<color name="menu_default_color">#FF545353</color>
+	<color name="transparent">#00000000</color>
+</resources>

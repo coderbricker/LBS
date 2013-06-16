@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"	android:layout_width="match_parent"
+	android:layout_height="wrap_content" android:background="@drawable/friend_list_selector" >
+
+	<TextView  android:id="@+id/index" android:layout_width="match_parent" 
+		android:layout_height="wrap_content" android:background="@drawable/index_bg"
+		android:visibility="gone" android:textColor="#fffdfafa"
+		android:paddingLeft="10dp"
+	/>
+	
+	<RelativeLayout android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:background="@drawable/friend_list_selector">
+
+		<TextView android:id="@+id/nickName" android:layout_width="180dip"
+			android:layout_height="wrap_content" android:gravity="center_vertical"
+			android:paddingLeft="10dip" android:textColor="@color/friend_nick_name_selector"
+			android:layout_alignParentLeft="true" android:layout_centerVertical="true"/>
+
+
+		<LinearLayout android:layout_width="60dp" android:layout_height="wrap_content"
+			android:orientation="horizontal" android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+		>
+		
+			<ImageView android:id="@+id/continue_sharing_location"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:background="@drawable/friend_share_continously_selector"
+				android:layout_centerVertical="true" android:layout_margin="4dp"
+				android:layout_gravity="left|center_vertical"
+			/>
+			
+			<!-- android:visibility="gone"  -->
+			<ImageView android:id="@+id/new_location_com"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:background="@drawable/friend_location_come_selector"
+				android:layout_centerVertical="true" android:layout_margin="4dp" 
+				android:layout_gravity="right|center_vertical"
+			 />
+		
+		</LinearLayout>
+		
+	</RelativeLayout>
+
+
+</LinearLayout>

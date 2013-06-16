@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/Groups" android:orientation="horizontal"
+	android:layout_width="match_parent" android:layout_height="@dimen/group_member_item_height"
+	>
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:orientation="horizontal" android:layout_height="wrap_content"
+			android:layout_width="match_parent" android:paddingLeft="20dp"
+			>
+
+			<ImageView android:id="@+id/group_members_owner"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_centerVertical="true" android:layout_marginLeft="25dp"
+				android:layout_alignParentLeft="true" android:background="@drawable/group_onwer_icon" 
+				android:visibility="gone"
+				/>
+
+			<TextView android:id="@+id/group_members_name"
+				android:layout_height="50dp" android:layout_width="wrap_content"
+				android:textColor="#ff838181" android:textSize="20sp"
+				android:layout_toRightOf="@+id/group_members_owner"
+				android:gravity="center_vertical" android:layout_marginLeft="10dp"
+				android:text="@string/menu_share_location" />
+
+			<!-- android:visibility="gone" -->
+			<ImageView android:id="@+id/group_members_remove"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_alignParentRight="true" android:background="@drawable/group_remove_user_icon"
+				android:layout_centerVertical="true" 
+				android:layout_marginRight="50dp"
+				android:visibility="gone"	
+				/>
+
+		</RelativeLayout>
+	
+</LinearLayout>

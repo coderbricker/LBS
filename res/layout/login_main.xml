@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_gravity="center_vertical"
+  android:paddingLeft="30dp"
+  android:paddingRight="30dp"
+  android:background="@drawable/login_bg">
+    
+    
+    <ImageView 
+  		android:layout_width="match_parent"
+  		android:layout_height="wrap_content"
+  		android:src="@drawable/logo_big"
+    	android:layout_marginTop="80dp"/>
+    
+    <Button 
+  		android:layout_width="match_parent"
+  		android:layout_height="wrap_content"
+  		android:id="@+id/anonymity_login"
+  		android:background="@drawable/button"
+  		android:textColor="@color/text_default_color"
+  		android:text="@string/anonymity_login"
+    	android:layout_marginTop="50dp"
+    	
+    />
+    
+     <Button 
+  		android:layout_width="match_parent"
+  		android:layout_height="wrap_content"
+  		android:id="@+id/login"
+  		android:background="@drawable/button"
+  		android:textColor="@color/text_default_color"
+  		android:text="@string/login"
+    	android:layout_marginTop="50dp"
+    	
+    />
+    
+    <Button 
+  		android:layout_width="match_parent"
+  		android:layout_height="wrap_content"
+  		android:id="@+id/register"
+  		android:background="@drawable/button"
+  		android:textColor="@color/text_default_color"
+  		android:text="@string/register"
+    	android:layout_marginTop="50dp"
+    	
+    />
+</LinearLayout>

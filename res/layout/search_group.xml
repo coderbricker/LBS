@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent" android:layout_width="match_parent"
+	android:orientation="vertical" 
+	android:background="#FFFFFFFF" >
+	
+	<LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+		android:orientation="horizontal" android:padding="10dp" 
+		android:background="@drawable/add_fried_top_bg">
+		<ImageView android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:src="@drawable/search_group_icon"
+			android:layout_gravity="center_vertical"
+		></ImageView>
+		<TextView android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:layout_gravity="center_vertical"
+			android:text="@string/lab_search_group"
+			android:textColor="@color/menu_default_color"
+		/>
+	</LinearLayout>
+
+
+	<LinearLayout android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:orientation="vertical"
+		android:background="@drawable/menu_popup_edit_bg"
+		android:layout_margin="3dp" android:layout_gravity="left"
+		android:paddingLeft="20dp" android:paddingRight="20dp">
+
+		<TextView android:layout_height="wrap_content"
+			android:textColor="@color/menu_default_color"
+			android:paddingTop="10dp"
+			android:paddingBottom="10dp"
+			android:layout_width="fill_parent" android:text="@string/input_group_name" />
+		<EditText android:id="@+id/search_group_name"
+			android:background="@drawable/add_friend_input"
+			android:layout_marginBottom="20dp"
+			android:layout_height="wrap_content" android:layout_width="fill_parent" />
+	</LinearLayout>
+	 
+	<Button android:id="@+id/search_group_search"
+		android:layout_height="wrap_content" android:layout_width="@dimen/single_button_width"
+		android:textColor="@color/text_default_color" android:background="@drawable/button"
+		android:text="@string/search_group_search" 
+		android:layout_marginTop="10dp"
+		android:paddingLeft="20dp"
+		android:paddingRight="20dp"
+		android:layout_gravity="center"/>
+		
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent" android:layout_width="match_parent"
+	android:orientation="vertical" 
+	android:background="#FFFFFFFF" 
+	android:gravity="center_horizontal">
+	
+	<LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+		android:orientation="horizontal" android:padding="10dp" 
+		android:background="@drawable/add_fried_top_bg">
+		<ImageView android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:src="@drawable/about_menu_icon2"
+			android:layout_gravity="center_vertical"
+		></ImageView>
+		<TextView android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:layout_gravity="center_vertical"
+			android:text="@string/menu_about"
+			android:textColor="@color/menu_default_color"
+		/>
+	</LinearLayout>
+	
+	<LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+		android:orientation="vertical" android:layout_margin="3dp">
+		 <ImageView 
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:src="@drawable/logo_big"
+	  		android:layout_marginTop="20dp"
+	  		android:layout_marginBottom="20dp"/>
+		
+		<RelativeLayout android:layout_height="wrap_content"
+			android:layout_width="match_parent" android:background="@drawable/menu_popup_edit_bg"
+			android:layout_gravity="left" android:paddingTop="10dp"
+			android:paddingLeft="20dp" android:paddingRight="20dp"
+			android:paddingBottom="20dp">
+			
+			<TextView android:id="@+id/about_user"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:textColor="@color/menu_default_color"
+				android:textSize="22sp"
+				android:paddingTop="20dp"
+				android:paddingBottom="20dp"/>
+				
+			<TextView android:id="@+id/about_phone"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:textColor="@color/menu_default_color"
+				android:layout_below="@+id/about_user"/>
+			
+			<TextView 
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:id="@+id/about_email"
+				android:textColor="@color/menu_default_color"
+				android:layout_below="@+id/about_phone" />
+		</RelativeLayout>
+	
+	 	<!-- 
+		<RelativeLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+			android:orientation="horizontal" android:layout_margin="5dp" 
+			android:paddingLeft="30dp" 
+			android:paddingRight="30dp" 
+			android:gravity="center_horizontal">
+			
+			<Button android:layout_height="wrap_content" android:layout_width="@dimen/single_button_width"
+				android:id="@+id/about_ok"
+				android:text="@string/lab_ok"
+				android:textColor="@color/text_default_color"
+				android:background="@drawable/button"
+				android:paddingLeft="20dp" 
+				android:paddingRight="20dp"/>	
+		</RelativeLayout>
+		 -->
+	</LinearLayout>
+				
+</LinearLayout>

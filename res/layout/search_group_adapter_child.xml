@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/Groups" android:orientation="vertical"
+	android:layout_width="match_parent" android:layout_height="wrap_content"
+	android:background="@drawable/search_group_sub_bg"
+	android:layout_gravity="left" android:paddingLeft="5dp">
+
+	
+	<TextView android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:text="@string/search_group_adapter_child_groupname" 
+		android:textColor="@color/menu_default_color"
+	/>
+	<TextView android:id="@+id/search_group_adapter_child_groupname" android:layout_width="match_parent"
+		android:layout_height="wrap_content" 
+		android:textColor="@color/menu_default_color"/>
+	
+	<TextView android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:text="@string/search_group_adapter_child_groupdescription"
+		android:textColor="@color/menu_default_color" />
+		
+	<TextView android:id="@+id/search_group_adapter_child_groupdescription" android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textColor="@color/menu_default_color" />
+		
+	<Button android:id="@+id/search_group_adapter_child_join" android:layout_width="100dp"
+		android:layout_height="wrap_content" android:text="@string/search_group_adapter_child_join"
+		android:background="@drawable/button"
+		android:layout_gravity="center"
+		android:paddingLeft="20dp" 
+		android:paddingRight="20dp"
+		android:layout_marginTop="20dp"
+	/>
+</LinearLayout>

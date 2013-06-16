@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent" android:layout_width="match_parent"
+	android:orientation="vertical" 
+	android:background="#FFFFFFFF" >
+	 
+	<LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent"
+		android:orientation="horizontal" android:padding="10dp" 
+		android:background="@drawable/add_fried_top_bg">
+		<ImageView android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:src="@drawable/create_group_icon"
+			android:layout_gravity="center_vertical"
+		></ImageView>
+		<TextView android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:text="@string/lab_create_group"
+			android:layout_gravity="center_vertical"
+			android:textColor="@color/menu_default_color"
+		/>
+	</LinearLayout>
+	
+	 
+	 <LinearLayout android:layout_height="wrap_content"
+		android:layout_width="fill_parent" android:orientation="vertical"
+		android:background="@drawable/menu_popup_edit_bg"
+		android:layout_margin="3dp" android:layout_gravity="left"
+		android:paddingBottom="10dp" android:paddingTop="10dp"
+		android:paddingLeft="20dp" android:paddingRight="20dp">
+		
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:text="@string/input_group_name" 
+			android:textColor="@color/menu_default_color"/>
+		<EditText android:id="@+id/create_group_name"
+			android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
+			android:layout_height="wrap_content" android:layout_width="fill_parent"
+			android:background="@drawable/add_friend_input"
+			android:hint="@string/group_name_rule" />
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:text="@string/input_group_description" 
+			android:textColor="@color/menu_default_color" />
+		<EditText android:id="@+id/create_group_description"
+			android:background="@drawable/add_friend_input"
+			android:layout_marginTop="5dp" android:layout_marginBottom="5dp"
+			android:layout_height="wrap_content" android:layout_width="fill_parent"
+			android:minLines="3" android:gravity="top" />
+
+	</LinearLayout>
+
+	<RelativeLayout android:layout_height="wrap_content"
+		android:layout_width="match_parent" android:orientation="horizontal"
+		android:layout_margin="10dp" android:paddingLeft="30dp"
+		android:paddingRight="30dp">
+
+		<Button android:layout_height="wrap_content"
+			android:layout_width="@dimen/double_button_width" android:id="@+id/create_group_create"
+			android:text="@string/create_group_create" android:textColor="@color/text_default_color"
+			android:background="@drawable/button" android:layout_alignParentLeft="true"
+			android:paddingLeft="20dp" android:paddingRight="20dp" />
+		<Button android:layout_height="wrap_content"
+			android:layout_width="@dimen/double_button_width" android:id="@+id/create_group_cancel"
+			android:text="@string/lab_cancle" android:textColor="@color/text_default_color"
+			android:background="@drawable/button"
+			android:layout_alignParentRight="true" android:paddingLeft="20dp"
+			android:paddingRight="20dp" />
+	</RelativeLayout>
+</LinearLayout>

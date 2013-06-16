@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-import com.codebricker.lbsshare.R;
-
 import android.app.Notification;
 import android.app.Notification.Builder;
 import android.app.NotificationManager;
@@ -14,6 +12,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.widget.RemoteViews;
+
+import com.codebricker.lbsshare.R;
 
 public class NotificationMgr {
 	public static final int APK_DOWNLOADING = 1;

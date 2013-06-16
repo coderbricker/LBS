@@ -17,4 +17,20 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    
+    <style name="Dialog_Fullscreen" >  
+    <item name="android:windowNoTitle">true</item>
+</style>
+  
+<style name="Dialog_No_Title" parent="@android:style/Theme.Dialog">  
+     <item name="android:windowFrame">@null</item>
+     <item name="android:windowIsFloating">true</item>
+     <item name="android:windowIsTranslucent">true</item>
+     <item name="android:windowNoTitle">true</item>
+     <item name="android:windowBackground">@color/transparent</item>
+     <item name="android:backgroundDimEnabled">false</item>
+</style>
+<style name="Progress_Bar_CONN_Style" parent="@android:style/Widget.ProgressBar.Large">
+    <item name="android:indeterminateDrawable">@drawable/progress_connect_waiting</item>
+</style>  
 </resources>

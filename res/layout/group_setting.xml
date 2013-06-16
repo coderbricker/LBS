@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content" android:layout_width="match_parent"
+	android:orientation="vertical" android:id="@+id/detail_dialog"
+	android:background="@drawable/friend_detail_dialog_bg"
+	android:layout_gravity="left" android:padding="3dp">
+
+	<Button android:layout_height="50dp" android:layout_width="match_parent"
+		android:id="@+id/group_remove_group" android:textColor="@color/text_default_color"
+		android:background="@drawable/button" android:text="@string/group_setting"
+		android:textSize="20dp" android:gravity="left|center_vertical"
+		android:paddingLeft="15dp" />
+
+	<LinearLayout android:layout_height="wrap_content"
+		android:layout_width="match_parent" android:background="@drawable/friend_list_location_list_bg"
+		android:orientation="vertical" android:layout_marginTop="5dp"
+		android:padding="0dp">
+
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:textColor="@color/group_setting_selector"
+			android:textSize="15sp" android:gravity="center_vertical"
+			android:layout_marginLeft="15dp" android:layout_marginTop="15dp"
+			android:text="@string/group_setting_group_name" />
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:textColor="@color/group_setting_selector"
+			android:textSize="13sp" android:gravity="center_vertical"
+			android:layout_marginLeft="25dp" android:id="@+id/share_group_name" />
+
+
+		<ImageView android:id="@+id/group_member_list_divider"
+			android:layout_width="match_parent" android:layout_height="wrap_content"
+			android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+			android:layout_marginTop="10dp" android:layout_marginBottom="10dp"
+			android:background="@drawable/friend_detail_list_divider" />
+
+
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:textColor="@color/group_setting_selector"
+			android:textSize="15sp" android:gravity="center_vertical"
+			android:layout_marginLeft="15dp" android:text="@string/group_setting_group_description" />
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:textColor="@color/group_setting_selector"
+			android:textSize="13sp" android:gravity="center_vertical"
+			android:layout_marginLeft="25dp" android:id="@+id/share_group_decription" />
+
+		<ImageView android:id="@+id/friend_menu_list_icon"
+			android:layout_width="match_parent" android:layout_height="wrap_content"
+			android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+			android:background="@drawable/friend_detail_list_divider"
+			android:layout_marginTop="10dp" android:layout_marginBottom="10dp" />
+
+
+
+		<LinearLayout android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:orientation="vertical"
+			android:id="@+id/group_share_start_time_layout">
+			
+			<TextView 
+					android:layout_height="wrap_content" android:layout_width="match_parent"
+					android:textColor="@color/group_setting_selector" android:textSize="15sp"
+					android:gravity="center_vertical" android:layout_marginLeft="15dp"
+					android:text="@string/group_setting_share_start_time" />
+			<TextView android:id="@+id/group_share_start_time"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:textColor="@color/group_setting_selector" android:textSize="13sp"
+				android:gravity="center_vertical" android:layout_marginLeft="25dp" />
+				
+		</LinearLayout>
+				
+		<LinearLayout android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:orientation="vertical"
+			android:id="@+id/group_share_end_time_layout">
+			
+			<TextView
+				android:layout_height="wrap_content" android:layout_width="match_parent"
+				android:textColor="@color/group_setting_selector" android:textSize="15sp"
+				android:gravity="center_vertical" android:layout_marginLeft="15dp"
+				android:text="@string/group_setting_share_end_time" />
+			<TextView android:id="@+id/group_share_end_time"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:textColor="@color/group_setting_selector" android:textSize="13sp"
+				android:gravity="center_vertical" android:layout_marginLeft="25dp" />
+		</LinearLayout>	
+
+		<LinearLayout android:layout_width="match_parent"
+			android:layout_height="wrap_content" android:orientation="vertical"
+			android:id="@+id/share_group_interval_time_layout">
+				
+			<TextView android:id="@+id/group_add_user_in_this_group"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:textColor="@color/group_setting_selector" android:textSize="15sp"
+				android:gravity="center_vertical" android:layout_marginLeft="15dp"
+				android:text="@string/group_setting_interval_time" />
+			<TextView android:id="@+id/share_group_interval_time"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:textColor="@color/group_setting_selector" android:textSize="13sp"
+				android:gravity="center_vertical" android:layout_marginLeft="25dp" />
+
+		</LinearLayout>
+
+
+		<ImageView android:id="@+id/friend_menu_list_icon"
+			android:layout_width="match_parent" android:layout_height="wrap_content"
+			android:background="@drawable/friend_detail_list_divider"
+			android:layout_marginLeft="25dp" android:layout_marginRight="25dp"
+			android:layout_marginTop="10dp" android:layout_marginBottom="10dp" />
+
+		<TextView android:id="@+id/group_groupsetting"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:textColor="@color/group_setting_selector" android:textSize="15sp"
+			android:gravity="center_vertical" android:layout_marginLeft="15dp"
+			android:text="@string/group_setting_group_owner" />
+		<TextView android:id="@+id/share_group_owner"
+			android:layout_height="wrap_content" android:layout_width="wrap_content"
+			android:textColor="@color/group_setting_selector" android:textSize="13sp"
+			android:gravity="center_vertical" android:layout_marginLeft="25dp"
+			android:layout_marginBottom="15dp" />
+
+
+
+
+	</LinearLayout>
+	<LinearLayout android:layout_height="wrap_content"
+		android:layout_width="match_parent" android:orientation="horizontal"
+		android:layout_marginTop="5dp" android:padding="0dp">
+		<Button android:layout_height="wrap_content"
+			android:layout_width="match_parent" android:id="@+id/share_group_confirm"
+			android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
+			android:textColor="@color/text_default_color" android:background="@drawable/button"
+			android:layout_marginTop="10dp" android:text="@string/lab_ok"
+			android:layout_weight="1" />
+		<Button android:layout_height="wrap_content"
+			android:layout_width="match_parent" android:id="@+id/share_group_cancle"
+			android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
+			android:textColor="@color/text_default_color" android:background="@drawable/button"
+			android:layout_marginTop="10dp" android:text="@string/lab_cancle"
+			android:layout_weight="1" />
+
+	</LinearLayout>
+
+
+</LinearLayout>
+

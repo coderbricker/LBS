@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@android:id/tabhost" android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/tab_bg">
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="match_parent" android:layout_height="match_parent">
+		
+		<TabWidget android:id="@android:id/tabs"
+			android:layout_width="match_parent" android:layout_height="wrap_content"
+			/>
+		
+		<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" 
+			android:background="@drawable/tab_bottom"  android:id="@+id/tab_bottom_line"
+		 	android:layout_marginTop="-3dp" >		
+		</LinearLayout>
+	
+		<FrameLayout android:id="@android:id/tabcontent"
+			android:layout_width="match_parent" android:layout_height="match_parent">		
+			<!--Friends -->
+			<LinearLayout 
+				android:id="@+id/Friends" android:orientation="vertical"
+				android:layout_width="match_parent" android:layout_height="match_parent">
+				<!-- 
+				<Button android:id="@+id/add_friend" android:layout_width="match_parent"
+					android:layout_height="wrap_content" android:text="@string/lab_add_friend" />
+				-->
+				<ListView android:id="@+id/listView" android:layout_width="match_parent"
+					android:layout_height="match_parent" 
+					android:background="@drawable/friend_detail_dialog_bg"
+					android:layout_alignWithParentIfMissing="true" android:scrollbars="none|vertical"
+					android:cacheColorHint="#FFFFFFFF" />
+			</LinearLayout>
+
+			<!--Groups -->
+			<LinearLayout 
+				android:id="@+id/Groups" android:orientation="vertical"
+				android:layout_width="match_parent" android:layout_height="match_parent">
+				<!-- 
+				<TextView android:layout_width="match_parent" android:id="@+id/textView_group"
+					android:layout_height="wrap_content" android:text="Groups layout" />
+					
+				<Button android:id="@+id/query_group_setting"  android:layout_width="match_parent"
+					android:layout_height="wrap_content" android:text="Group Setting Get"/>
+				<Button android:id="@+id/set_group_setting"  android:layout_width="match_parent"
+					android:layout_height="wrap_content" android:text="Group Setting Set"/>
+					
+				<Button android:id="@+id/set_group_sharegroup"  android:layout_width="match_parent"
+					android:layout_height="wrap_content" android:text="Group Setting Set Share Group"/>
+					 -->
+<!-- 				<ExpandableListView android:id="@+id/groupexpandablelistView" android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_alignWithParentIfMissing="true" android:scrollbars="none|vertical" /> -->
+ 				<ListView android:id="@+id/grouplistView" android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:background="@drawable/friend_detail_dialog_bg"
+					android:layout_alignWithParentIfMissing="true" android:scrollbars="none|vertical" />
+			</LinearLayout>
+
+
+			<!--Apps -->
+			<LinearLayout 
+				android:id="@+id/Apps" android:orientation="vertical"
+				android:layout_width="match_parent" android:layout_height="match_parent">
+				
+				<ListView android:id="@+id/applistView" android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:background="@drawable/friend_detail_dialog_bg"
+					android:layout_alignWithParentIfMissing="true" android:scrollbars="none|vertical" />
+			</LinearLayout>
+
+
+			<!--Setting -->
+			<LinearLayout 
+				android:id="@+id/Events" android:orientation="vertical"
+				android:layout_width="match_parent" android:layout_height="match_parent">
+				<TextView android:layout_width="match_parent"
+					android:layout_height="wrap_content" />
+				<!-- 
+				<Button android:id="@+id/btn_share_location_setting"
+					android:layout_width="match_parent" android:layout_height="wrap_content"
+					android:text="@string/text_share_location_setting" />
+				 -->
+			</LinearLayout>
+		</FrameLayout>
+	</LinearLayout>
+</TabHost>
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent" android:layout_width="match_parent"
+	android:orientation="vertical" 
+	android:background="@drawable/dialog_bg"
+	android:layout_gravity="left"
+	>
+
+	<TextView 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/group_change_groupsetting_dialog_title"
+		android:background="@drawable/dialog_title" 
+		android:textSize="20sp"
+		android:textColor="@color/text_default_color"
+		android:gravity="center" />
+	
+		
+	
+	<TextView 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textSize="20sp"
+		android:layout_marginTop="10dp"
+		android:layout_marginBottom="10dp"
+		android:textColor="@color/menu_default_color"
+		android:text="@string/group_setting_interval_time"
+		/>
+		
+		<EditText 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/add_friend_input"
+		android:id="@+id/group_change_groupsetting_interval"
+		android:textSize="20sp"
+		android:numeric="integer"
+		 />
+	
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="match_parent" android:layout_width="match_parent"
+	android:orientation="horizontal" 
+	android:padding="30dp"
+	>
+	<Button android:layout_height="wrap_content" android:layout_width="100dp"
+		android:id="@+id/group_change_groupsetting_ok"
+		android:text="@string/lab_ok"
+		android:textColor="@color/text_default_color"
+		android:background="@drawable/button"
+		android:paddingLeft="20dp" 
+		android:paddingRight="20dp"
+		android:layout_weight="1"
+		/>	
+		<TextView 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textSize="20sp"
+		android:textColor="@color/menu_default_color"
+		android:layout_weight="1"
+		android:paddingLeft="20dp" 
+		android:paddingRight="20dp"
+		/>
+		<Button android:layout_height="wrap_content" android:layout_width="100dp"
+		android:id="@+id/group_change_groupsetting_cancel"
+		android:text="@string/lab_cancle"
+		android:textColor="@color/text_default_color"
+		android:background="@drawable/button"
+		android:paddingLeft="20dp" 
+		android:paddingRight="20dp"
+		android:layout_weight="1"
+		/>
+	
+	</LinearLayout>
+	
+	
+</LinearLayout>
