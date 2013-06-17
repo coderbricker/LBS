@@ -19,15 +19,11 @@ public final class AndroidUtil {
 
 	public static void init(Application app) {
 		sApp = (App) app;
+		sRes = sApp.getResources();
 	}
 
 	public static Application getApp() {
 		return sApp;
-	}
-
-	protected static void init() {
-		sApp = App.get();
-		sRes = sApp.getResources();
 	}
 
 	public static String getString(int resId) {

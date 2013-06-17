@@ -16,18 +16,16 @@
             android:layout_height="wrap_content" />
 
         <LinearLayout
-            android:id="@+id/tab_bottom_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-3dp"
-            android:background="@drawable/tab_bottom"
-            android:orientation="horizontal" >
+            android:background="@drawable/tab_bottom" >
         </LinearLayout>
 
         <FrameLayout
             android:id="@android:id/tabcontent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:visibility="gone" >
 
             <!-- Friends -->
 
@@ -36,11 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
-
-                <!--
-				<Button android:id="@+id/add_friend" android:layout_width="match_parent"
-					android:layout_height="wrap_content" android:text="@string/lab_add_friend" />
-                -->
 
                 <ListView
                     android:id="@+id/listView"
@@ -59,24 +52,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical" >
-
-                <!--
-				<TextView android:layout_width="match_parent" android:id="@+id/textView_group"
-					android:layout_height="wrap_content" android:text="Groups layout" />
-					
-				<Button android:id="@+id/query_group_setting"  android:layout_width="match_parent"
-					android:layout_height="wrap_content" android:text="Group Setting Get"/>
-				<Button android:id="@+id/set_group_setting"  android:layout_width="match_parent"
-					android:layout_height="wrap_content" android:text="Group Setting Set"/>
-					
-				<Button android:id="@+id/set_group_sharegroup"  android:layout_width="match_parent"
-					android:layout_height="wrap_content" android:text="Group Setting Set Share Group"/>
-                -->
-                <!--
-     				<ExpandableListView android:id="@+id/groupexpandablelistView" android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					android:layout_alignWithParentIfMissing="true" android:scrollbars="none|vertical" />
-                -->
 
                 <ListView
                     android:id="@+id/grouplistView"
