@@ -501,12 +501,8 @@ public class MainActivity extends TabActivity {
 				register = data.getParcelableExtra("register");
 				// register
 				if (register != null && register.getRegisterTimes() < 1) {
-					try {
-						internal.setUserMap(register.getUserName(), register.getPassWord(), register.getEmail(),
-								register.getPhone());
-					} catch (RemoteException e) {
-						e.printStackTrace();
-					}
+					internal.setUserMap(register.getUserName(), register.getPassWord(), register.getEmail(),
+							register.getPhone());
 				}
 			}
 
